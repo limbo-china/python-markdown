@@ -31,4 +31,13 @@ def main():
     #pdf only
     only_pdf = False
 
-    #
+    #docopt
+    args = docopt(__doc__, version=__version__)
+    output_file = args['<outputfile>'] if args['--output'] else output_file
+    output_pdf_file = args['<outputfile>'] if args['--print'] or args['--Print'] else ""
+
+    #parse sourcefile
+    run(args['<sourcefile>'],output_file,output_pdf_file,args['--Print'])
+
+if __name__=="__main__"
+    main()
