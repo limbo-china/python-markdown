@@ -17,21 +17,6 @@ from docopt import docopt
 
 __version__='1.0'
 
-#main func
-def main():
-    #default output html filename
-    output_file = "output.html"
-
-    #docopt
-    args = docopt(__doc__, version=__version__)
-    output_file = args['<outputfile>'] if args['--output'] else output_file
-
-    #parse sourcefile
-    run(args['<sourcefile>'],output_file)
-
-if __name__=="__main__":
-    main()
-
 class TABLE(Enum):
 	Init = 1
 	Format = 2
@@ -122,3 +107,18 @@ def test_state(input):
 		print("not match")
 
 	return input
+
+#main func
+def main():
+    #default output html filename
+    output_file = "output.html"
+
+    #docopt
+    args = docopt(__doc__, version=__version__)
+    output_file = args['<outputfile>'] if args['--output'] else output_file
+
+    #parse sourcefile
+    run(args['<sourcefile>'],output_file)
+
+if __name__=="__main__":
+    main()
